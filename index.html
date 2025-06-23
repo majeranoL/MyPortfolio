@@ -65,6 +65,90 @@
                 <a href="#contact" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary dark:text-gray-200 dark:hover:text-primary">Contact</a>
             </div>
         </div>
+
+        <!-- Hidden Hover Button (rightmost) -->
+        <button id="hidden-navbar-btn" class="fixed top-4 right-0 opacity-0 hover:opacity-100 transition-opacity duration-300 bg-primary text-white px-4 py-2 rounded-l-lg z-50" style="pointer-events: auto;">
+            Secret
+        </button>
+        <!-- Project Submission Modal -->
+        <div id="project-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 w-full max-w-md relative">
+            <button id="close-project-modal" class="absolute top-2 right-2 text-gray-500 hover:text-primary text-2xl">&times;</button>
+            <h3 class="text-2xl font-bold mb-6 text-primary dark:text-yellow-300 text-center">Submit a Project</h3>
+            <form id="project-form" class="space-y-4">
+              <div>
+                <label for="project-title" class="block font-semibold mb-1 text-gray-700 dark:text-gray-200">Project Title</label>
+                <input type="text" id="project-title" name="title" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+              </div>
+              <div>
+                <label for="project-description" class="block font-semibold mb-1 text-gray-700 dark:text-gray-200">Description</label>
+                <textarea id="project-description" name="description" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:text-white"></textarea>
+              </div>
+              <div>
+                <label class="block font-semibold mb-1 text-gray-700 dark:text-gray-200">Language Used</label>
+                <button type="button" id="show-language-select" class="bg-primary text-white px-3 py-1 rounded mb-2">Select Languages</button>
+                <div id="language-select-list" class="flex flex-wrap gap-2 mb-2 hidden">
+                  <label class="flex items-center bg-blue-200 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="JavaScript" class="mr-1"> JavaScript
+                  </label>
+                  <label class="flex items-center bg-yellow-200 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="Python" class="mr-1"> Python
+                  </label>
+                  <label class="flex items-center bg-green-200 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="Java" class="mr-1"> Java
+                  </label>
+                  <label class="flex items-center bg-red-200 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="C#" class="mr-1"> C#
+                  </label>
+                  <label class="flex items-center bg-purple-200 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="PHP" class="mr-1"> PHP
+                  </label>
+                  <label class="flex items-center bg-pink-200 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="TypeScript" class="mr-1"> TypeScript
+                  </label>
+                  <label class="flex items-center bg-orange-200 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="HTML" class="mr-1"> HTML
+                  </label>
+                  <label class="flex items-center bg-gray-300 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="languages" value="Other" class="mr-1"> Other
+                  </label>
+                </div>
+                <div id="selected-languages" class="flex flex-wrap gap-2"></div>
+              </div>
+              <div>
+                <label class="block font-semibold mb-1 text-gray-700 dark:text-gray-200">Database Used</label>
+                <button type="button" id="show-database-select" class="bg-primary text-white px-3 py-1 rounded mb-2">Select Databases</button>
+                <div id="database-select-list" class="flex flex-wrap gap-2 mb-2 hidden">
+                  <label class="flex items-center bg-blue-300 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="databases" value="MySQL" class="mr-1"> MySQL
+                  </label>
+                  <label class="flex items-center bg-green-300 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="databases" value="PostgreSQL" class="mr-1"> PostgreSQL
+                  </label>
+                  <label class="flex items-center bg-yellow-300 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="databases" value="Firebase" class="mr-1"> Firebase
+                  </label>
+                  <label class="flex items-center bg-red-300 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="databases" value="MongoDB" class="mr-1"> MongoDB
+                  </label>
+                  <label class="flex items-center bg-purple-300 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="databases" value="SQLite" class="mr-1"> SQLite
+                  </label>
+                  <label class="flex items-center bg-pink-300 px-2 py-1 rounded-full cursor-pointer">
+                    <input type="checkbox" name="databases" value="Other" class="mr-1"> Other
+                  </label>
+                </div>
+                <div id="selected-databases" class="flex flex-wrap gap-2"></div>
+              </div>
+              <div>
+                <label for="project-images" class="block font-semibold mb-1 text-gray-700 dark:text-gray-200">Project Images (up to 5)</label>
+                <input type="file" id="project-images" name="images" accept="image/*" multiple class="w-full px-2 py-1 border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">You can select up to 5 images. The first image will be featured.</p>
+              </div>
+              <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary/90 transition duration-300">Submit Project</button>
+            </form>
+          </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -304,137 +388,101 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-cream dark:bg-black">
+    <section id="contact" class="py-10 bg-cream dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4 dark:text-white">Get In Touch</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2 dark:text-white">Get In Touch</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-xl mx-auto dark:text-gray-300 text-base">
                     Interested in collaborating or have a project idea? Let's connect and build something great together!
                 </p>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12">
+            <div class="grid lg:grid-cols-2 gap-8">
                 <!-- Contact Info -->
                 <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-8 dark:text-white">Let's Connect</h3>
-                    <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 dark:text-white">Let's Connect</h3>
+                    <div class="space-y-4">
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
+                            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
                                 <i class="fas fa-envelope text-white"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-white">Email</h4>
-                                <p class="text-gray-600 dark:text-gray-300">majeranolian@gmail.com</p>
+                                <h4 class="font-semibold text-gray-800 dark:text-white text-base">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">majeranolian@gmail.com</p>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
+                            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
                                 <i class="fas fa-phone text-white"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-white">Phone</h4>
-                                <p class="text-gray-600 dark:text-gray-300">+63 9760883045</p>
+                                <h4 class="font-semibold text-gray-800 dark:text-white text-base">Phone</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">+63 995 105 9642</p>
                             </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-white">Location</h4>
-                                <p class="text-gray-600 dark:text-gray-300">Tanza, Cavite</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Social Links -->
-                    <div class="mt-8">
-                        <h4 class="font-semibold text-gray-800 mb-4 dark:text-white">Follow Me</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/in/lian-majerano-427477364/" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/majeranoL" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition duration-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.facebook.com/zxcvb.4120/" class="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center text-white hover:bg-blue-800 transition duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Contact Form -->
-                <div class="bg-cream p-8 rounded-lg shadow-lg dark:bg-gray-900 dark:shadow-gray-800">
-                    <form id="contact-form">
-                        <div class="grid md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label for="name" class="block text-gray-700 font-semibold mb-2 dark:text-gray-200">Name</label>
-                                <input type="text" id="name" name="name" required 
-                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-gray-700 font-semibold mb-2 dark:text-gray-200">Email</label>
-                                <input type="email" id="email" name="email" required 
-                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
-                            </div>
+                <!-- Social Links Right Side -->
+                <div class="flex flex-col justify-center items-start space-y-6">
+                    <a href="https://www.linkedin.com/in/lian-majerano-427477364/" target="_blank" rel="noopener" class="flex items-center group">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary/90 transition">
+                            <i class="fab fa-linkedin-in text-white"></i>
                         </div>
-                        <div class="mb-6">
-                            <label for="subject" class="block text-gray-700 font-semibold mb-2 dark:text-gray-200">Subject</label>
-                            <input type="text" id="subject" name="subject" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                        <span class="font-semibold text-gray-800 dark:text-white text-base group-hover:text-primary dark:group-hover:text-primary transition">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/majeranoL" target="_blank" rel="noopener" class="flex items-center group">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary/90 transition">
+                            <i class="fab fa-github text-white"></i>
                         </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-semibold mb-2 dark:text-gray-200">Message</label>
-                            <textarea id="message" name="message" rows="5" required 
-                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 resize-none dark:bg-gray-800 dark:border-gray-700 dark:text-white"></textarea>
+                        <span class="font-semibold text-gray-800 dark:text-white text-base group-hover:text-primary dark:group-hover:text-primary transition">GitHub</span>
+                    </a>
+                    <a href="https://www.facebook.com/zxcvb.4120/" target="_blank" rel="noopener" class="flex items-center group">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary/90 transition">
+                            <i class="fab fa-facebook-f text-white"></i>
                         </div>
-                        <button type="submit" 
-                                class="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary/90 transition duration-300 flex items-center justify-center">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            Send Message
-                        </button>
-                    </form>
+                        <span class="font-semibold text-gray-800 dark:text-white text-base group-hover:text-primary dark:group-hover:text-primary transition">Facebook</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12 dark:bg-black dark:text-white">
+    <footer class="bg-cream dark:bg-gray-900 text-gray-800 dark:text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-2xl font-bold mb-4">Lian</h3>
-                    <p class="text-gray-300 mb-4 dark:text-gray-400">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Lian</h3>
+                    <p class="text-gray-700 mb-4 dark:text-gray-400">
                         Software developer passionate about building web and mobile solutions.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition duration-300 dark:text-gray-400 dark:hover:text-white">
+                        <a href="https://www.linkedin.com/in/lian-majerano-427477364/" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-white" target="_blank" rel="noopener">
                             <i class="fab fa-linkedin-in text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition duration-300 dark:text-gray-400 dark:hover:text-white">
+                        <a href="https://github.com/majeranoL" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-white" target="_blank" rel="noopener">
                             <i class="fab fa-github text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition duration-300 dark:text-gray-400 dark:hover:text-white">
-                            <i class="fab fa-twitter text-xl"></i>
+                        <a href="https://www.facebook.com/zxcvb.4120/" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-white" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f text-xl"></i>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Home</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">About</a></li>
-                        <li><a href="#skills" class="text-gray-300 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Skills</a></li>
-                        <li><a href="#projects" class="text-gray-300 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Projects</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Contact</a></li>
+                        <li><a href="#home" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Home</a></li>
+                        <li><a href="#about" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">About</a></li>
+                        <li><a href="#skills" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Skills</a></li>
+                        <li><a href="#projects" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-700 hover:text-primary transition duration-300 dark:text-gray-400 dark:hover:text-primary">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-300 dark:text-gray-400">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Services</h4>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-400">
                         <li>Web Development</li>
                         <li>Mobile App Development</li>
                         <li>Database Design</li>
@@ -442,9 +490,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center dark:border-gray-800">
-                <p class="text-gray-300 dark:text-gray-400">
-                    &copy; 2024 Mark. All rights reserved. Built with ❤️ and Tailwind CSS.
+            <div class="border-t border-gray-300 mt-8 pt-8 text-center dark:border-gray-800">
+                <p class="text-gray-700 dark:text-gray-400">
+                    &copy; 2024 Mark. All rights reserved. Built with Tailwind CSS.
                 </p>
             </div>
         </div>
@@ -455,190 +503,350 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-        // Dark mode toggle logic
+    <!-- Firebase & Form Submission Script -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+      import { getDatabase, ref, push, onValue, query, limitToLast } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBWXsPmjw6N4j52NjaaenEKdQbgRFzMKsg",
+        authDomain: "portfolio-15a91.firebaseapp.com",
+        projectId: "portfolio-15a91",
+        databaseURL: "https://portfolio-15a91-default-rtdb.firebaseio.com/",
+        storageBucket: "portfolio-15a91.firebasestorage.app",
+        messagingSenderId: "529530381054",
+        appId: "1:529530381054:web:1c5b65d89fce0156317baf",
+        measurementId: "G-4W9B4S27ML"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getDatabase(app);
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // --- UI LOGIC: Dark mode, animations, scroll, etc. ---
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         const darkModeIcon = document.getElementById('dark-mode-icon');
         const body = document.body;
-
-        // Set initial mode from localStorage or system preference
         function setDarkMode(isDark) {
-            if (isDark) {
-                body.classList.add('dark');
-                darkModeIcon.classList.remove('fa-moon');
-                darkModeIcon.classList.add('fa-sun');
-            } else {
-                body.classList.remove('dark');
-                darkModeIcon.classList.remove('fa-sun');
-                darkModeIcon.classList.add('fa-moon');
-            }
+          if (isDark) {
+            body.classList.add('dark');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+          } else {
+            body.classList.remove('dark');
+            darkModeIcon.classList.remove('fa-sun');
+            darkModeIcon.classList.add('fa-moon');
+          }
         }
-
-        // Check preference
         const userDark = localStorage.getItem('darkMode');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setDarkMode(userDark === 'true' || (userDark === null && systemDark));
-
+        setDarkMode(userDark === 'true');
         darkModeToggle.addEventListener('click', () => {
-            const isDark = !body.classList.contains('dark');
-            setDarkMode(isDark);
-            localStorage.setItem('darkMode', isDark);
+          const isDark = !body.classList.contains('dark');
+          setDarkMode(isDark);
+          localStorage.setItem('darkMode', isDark);
         });
-
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+          mobileMenu.classList.toggle('hidden');
         });
-
-        // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
         });
-
         // Smooth scrolling for navigation links
         const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+              const offsetTop = targetSection.offsetTop - 80;
+              window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+          });
         });
-
         // Back to top button
         const backToTopBtn = document.getElementById('back-to-top');
-
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                backToTopBtn.classList.add('opacity-100');
-            } else {
-                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                backToTopBtn.classList.remove('opacity-100');
-            }
+          if (window.pageYOffset > 300) {
+            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.add('opacity-100');
+          } else {
+            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.remove('opacity-100');
+          }
         });
-
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        // Contact form handling
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Simple form validation and submission simulation
-            if (name && email && subject && message) {
-                alert('Thank you for your message! I\'ll get back to you soon.');
-                contactForm.reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-
         // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
         }, observerOptions);
-
         // Observe project cards for animation
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          observer.observe(card);
         });
-
         // Observe skill items for animation
         const skillItems = document.querySelectorAll('.skill-item');
         skillItems.forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateX(-20px)';
-            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            observer.observe(item);
+          item.style.opacity = '0';
+          item.style.transform = 'translateX(-20px)';
+          item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+          observer.observe(item);
         });
-
         // Add typing animation to hero text and subtitle/description
         const heroTitle = document.querySelector('.animate-fade-in');
         const heroSub = document.querySelectorAll('#home .animate-fade-in');
-
         if (heroSub.length > 0) {
-            heroSub.forEach((el, idx) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = `opacity 1s ease, transform 1s ease`;
-            });
+          heroSub.forEach((el, idx) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity 1s ease, transform 1s ease`;
+          });
+          setTimeout(() => {
+            heroSub[0].style.opacity = '1';
+            heroSub[0].style.transform = 'translateY(0)';
+          }, 300);
+          if (heroSub[1]) {
             setTimeout(() => {
-                heroSub[0].style.opacity = '1';
-                heroSub[0].style.transform = 'translateY(0)';
-            }, 300);
-            if (heroSub[1]) {
-                setTimeout(() => {
-                    heroSub[1].style.opacity = '1';
-                    heroSub[1].style.transform = 'translateY(0)';
-                }, 500);
-            }
-            if (heroSub[2]) {
-                setTimeout(() => {
-                    heroSub[2].style.opacity = '1';
-                    heroSub[2].style.transform = 'translateY(0)';
-                }, 700);
-            }
+              heroSub[1].style.opacity = '1';
+              heroSub[1].style.transform = 'translateY(0)';
+            }, 500);
+          }
+          if (heroSub[2]) {
+            setTimeout(() => {
+              heroSub[2].style.opacity = '1';
+              heroSub[2].style.transform = 'translateY(0)';
+            }, 700);
+          }
         }
-
         // Fade-in from right for About section
         const aboutFadeIn = document.querySelectorAll('.animate-fade-in-right');
         aboutFadeIn.forEach((el, idx) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateX(40px)';
-            el.style.transition = `opacity 1s ease, transform 1s ease`;
-            setTimeout(() => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateX(0)';
-                        }
-                    });
-                }, { threshold: 0.1 });
-                observer.observe(el);
-            }, 200);
+          el.style.opacity = '0';
+          el.style.transform = 'translateX(30px)';
+          el.style.transition = `opacity 1s ease ${idx * 0.1}s, transform 1s ease ${idx * 0.1}s`;
+          observer.observe(el);
         });
+
+        // --- Firebase-dependent logic (comments, projects, etc.) ---
+        // Project submission form logic
+        const projectForm = document.getElementById('project-form');
+        const projectModal2 = document.getElementById('project-modal');
+        const projectImagesInput = document.getElementById('project-images');
+        projectForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(projectForm);
+          const title = formData.get('title');
+          const description = formData.get('description');
+          // Get all checked languages
+          const languages = Array.from(document.querySelectorAll('#language-select-list input[type=checkbox]:checked')).map(cb => cb.value);
+          // Get all checked databases
+          const databases = Array.from(document.querySelectorAll('#database-select-list input[type=checkbox]:checked')).map(cb => cb.value);
+          const files = projectImagesInput.files;
+          if (title && description && languages.length > 0) {
+            // Convert images to base64
+            const images = [];
+            if (files && files.length > 0) {
+              const maxImages = Math.min(files.length, 5);
+              for (let i = 0; i < maxImages; i++) {
+                const file = files[i];
+                const base64 = await new Promise((resolve, reject) => {
+                  const reader = new FileReader();
+                  reader.onload = () => resolve(reader.result);
+                  reader.onerror = reject;
+                  reader.readAsDataURL(file);
+                });
+                images.push(base64);
+              }
+            }
+            try {
+              // Save to both submittedProjects and Projects
+              const projectData = {
+                title,
+                description,
+                languages,
+                databases,
+                images,
+                timestamp: new Date().toISOString()
+              };
+              await push(ref(db, 'Projects'), projectData);
+              alert('Project submitted!');
+              projectForm.reset();
+              langList.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+              selectedLangsDiv.innerHTML = '';
+              dbList.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+              selectedDbsDiv.innerHTML = '';
+              projectModal2.classList.add('hidden');
+            } catch (error) {
+              alert('There was an error submitting your project. Please try again later.');
+            }
+          } else {
+            alert('Please fill in all fields and select at least one language.');
+          }
+        });
+        // Display submitted projects in Featured Projects
+        const projectCardsContainer = document.querySelectorAll('.project-card');
+        const projectsRef = query(ref(db, 'Projects'), limitToLast(3));
+        onValue(projectsRef, (snapshot) => {
+          const data = snapshot.val();
+          let projects = [];
+          if (data) {
+            projects = Object.values(data).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+          }
+          projectCardsContainer.forEach((card, idx) => {
+            card.innerHTML = '';
+            card.style.cursor = 'pointer';
+            if (projects[idx]) {
+              let imgTag = '';
+              if (projects[idx].images && projects[idx].images.length > 0) {
+                imgTag = `<div class='w-full h-48 mb-4 rounded overflow-hidden flex items-center justify-center'><img src='${projects[idx].images[0]}' alt='Project Image' class='w-full h-full object-cover'/></div>`;
+              }
+              let langs = '';
+              if (projects[idx].languages && Array.isArray(projects[idx].languages)) {
+                langs = `<div class='flex flex-wrap gap-2 mb-2'>` + projects[idx].languages.map(lang => {
+                  let color = 'bg-gray-300';
+                  if (lang === 'JavaScript') color = 'bg-blue-200';
+                  if (lang === 'Python') color = 'bg-yellow-200';
+                  if (lang === 'Java') color = 'bg-green-200';
+                  if (lang === 'C#') color = 'bg-red-200';
+                  if (lang === 'PHP') color = 'bg-purple-200';
+                  if (lang === 'TypeScript') color = 'bg-pink-200';
+                  if (lang === 'HTML') color = 'bg-orange-200';
+                  if (lang === 'Other') color = 'bg-gray-300';
+                  return `<span class='${color} text-xs px-2 py-1 rounded-full text-black font-semibold'>${lang}</span>`;
+                }).join('') + `</div>`;
+              }
+              let dbs = '';
+              if (projects[idx].databases && Array.isArray(projects[idx].databases)) {
+                dbs = `<div class='flex flex-wrap gap-2 mb-2'>` + projects[idx].databases.map(db => {
+                  let color = 'bg-gray-300';
+                  if (db === 'MySQL') color = 'bg-blue-300';
+                  if (db === 'PostgreSQL') color = 'bg-green-300';
+                  if (db === 'Firebase') color = 'bg-yellow-300';
+                  if (db === 'MongoDB') color = 'bg-red-300';
+                  if (db === 'SQLite') color = 'bg-purple-300';
+                  if (db === 'Other') color = 'bg-pink-300';
+                  return `<span class='${color} text-xs px-2 py-1 rounded-full text-black font-semibold'>${db}</span>`;
+                }).join('') + `</div>`;
+              }
+              card.innerHTML = `
+                <div class='p-6'>
+                  ${imgTag}
+                  <h4 class='text-xl font-bold text-primary dark:text-yellow-300 mb-2'>${projects[idx].title}</h4>
+                  <p class='text-gray-700 dark:text-gray-200 mb-2'>${projects[idx].description}</p>
+                  ${langs}
+                  ${dbs}
+                </div>
+              `;
+              card.onclick = () => {
+                renderProjectDetails(projects[idx]);
+                projectDetailModal.classList.remove('hidden');
+              };
+            } else {
+              card.onclick = null;
+            }
+          });
+        });
+
+        // --- Comment Form Logic ---
+        // Comment form logic removed
+        // Featured Project Modal
+        let currentProject = null;
+        // Create modal HTML
+        const projectDetailModal = document.createElement('div');
+        projectDetailModal.id = 'project-detail-modal';
+        projectDetailModal.className = 'fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden';
+        projectDetailModal.innerHTML = `
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 w-full max-w-2xl relative max-h-[90vh] overflow-y-auto">
+            <button id="close-project-detail-modal" class="absolute top-2 right-2 text-gray-500 hover:text-primary text-2xl">&times;</button>
+            <div id="project-detail-content"></div>
+          </div>
+        `;
+        document.body.appendChild(projectDetailModal);
+        const closeProjectDetailModal = projectDetailModal.querySelector('#close-project-detail-modal');
+        closeProjectDetailModal.addEventListener('click', () => {
+          projectDetailModal.classList.add('hidden');
+        });
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') projectDetailModal.classList.add('hidden');
+        });
+        // Make featured projects clickable
+        projectCardsContainer.forEach(card => {
+          card.addEventListener('click', () => {
+            const projectId = card.getAttribute('data-project-id');
+            if (projectId) {
+              currentProject = projects.find(p => p.id === projectId);
+              if (currentProject) {
+                renderProjectDetails(currentProject);
+                projectDetailModal.classList.remove('hidden');
+              }
+            }
+          });
+        });
+        function renderProjectDetails(project) {
+          let imagesHtml = '';
+          if (project.images && project.images.length > 0) {
+            imagesHtml = `<div class='flex gap-4 mb-4 overflow-x-auto'>` + project.images.map(img => `<img src='${img}' class='w-48 h-48 object-cover rounded'/>`).join('') + `</div>`;
+          }
+          let langs = '';
+          if (project.languages && Array.isArray(project.languages)) {
+            langs = `<div class='flex flex-wrap gap-2 mb-2'>` + project.languages.map(lang => {
+              let color = 'bg-gray-300';
+              if (lang === 'JavaScript') color = 'bg-blue-200';
+              if (lang === 'Python') color = 'bg-yellow-200';
+              if (lang === 'Java') color = 'bg-green-200';
+              if (lang === 'C#') color = 'bg-red-200';
+              if (lang === 'PHP') color = 'bg-purple-200';
+              if (lang === 'TypeScript') color = 'bg-pink-200';
+              if (lang === 'HTML') color = 'bg-orange-200';
+              if (lang === 'Other') color = 'bg-gray-300';
+              return `<span class='${color} text-xs px-2 py-1 rounded-full text-black font-semibold'>${lang}</span>`;
+            }).join('') + `</div>`;
+          }
+          let dbs = '';
+          if (project.databases && Array.isArray(project.databases)) {
+            dbs = `<div class='flex flex-wrap gap-2 mb-2'>` + project.databases.map(db => {
+              let color = 'bg-gray-300';
+              if (db === 'MySQL') color = 'bg-blue-300';
+              if (db === 'PostgreSQL') color = 'bg-green-300';
+              if (db === 'Firebase') color = 'bg-yellow-300';
+              if (db === 'MongoDB') color = 'bg-red-300';
+              if (db === 'SQLite') color = 'bg-purple-300';
+              if (db === 'Other') color = 'bg-pink-300';
+              return `<span class='${color} text-xs px-2 py-1 rounded-full text-black font-semibold'>${db}</span>`;
+            }).join('') + `</div>`;
+          }
+          document.getElementById('project-detail-content').innerHTML = `
+            <h2 class='text-2xl font-bold text-primary dark:text-yellow-300 mb-2'>${project.title}</h2>
+            ${imagesHtml}
+            <p class='text-gray-700 dark:text-gray-200 mb-2'>${project.description}</p>
+            ${langs}
+            ${dbs}
+            <div class='text-xs text-gray-400 mb-1'>Submitted: ${project.timestamp ? new Date(project.timestamp).toLocaleString() : ''}</div>
+          `;
+        }
+      });
     </script>
 </body>
 </html>
